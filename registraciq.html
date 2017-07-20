@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<head>
+
+    <!-- Basic Page Needs  ================================================== -->
+	<meta charset="utf-8">
+	<title>LINUX</title>
+	<meta name="description" content="Sait za Linux">
+	<meta name="author" content="Stoyan Shterev">
+	
+    <!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- CSS  ================================================== -->
+	<link rel="stylesheet" href="css/zerogrid.css">
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/responsiveslides.css" />
+	<!--  forma css -->
+	<link rel="stylesheet" href="css/forma.css" />
+	<link href='./images/8.ico' rel='icon' type='image/x-icon'/>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/responsiveslides.js"></script>
+	<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/bg_BG/all.js#xfbml=1&appId=213588182036191";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+ <script type="text/javascript">
+window.onload = function() {
+  var input = document.getElementById("textb").focus();
+}
+
+
+$(document).ready(function(){
+   var j = jQuery.noConflict();
+
+	function seterror(text, id)
+	{
+	document.getElementById(id).innerHTML="<div id=err>"+text+"</div>";
+	}
+	function clearerror(id)
+		{
+			document.getElementById(id).innerHTML="";
+		}
+		
+
+	j(document).ready(function() {
+			j('#post_button').click(function() {
+						if(addroom.sender.value==''){
+							seterror("Моля попълнете това поле", "error_sender");
+						addroom.sender.focus();
+						return false;
+						}
+						else if (addroom.sender.value.length<6) {
+						
+								seterror("Моля въведете повече от 6 символа", "error_sender");
+								addroom.sender.focus();
+								return false;
+								
+								
+							
+
+							
+						}
+						else {
+							clearerror("error_sender");
+						}
+						
+						if(addroom.email.value==''){
+						seterror("Моля попълнете това поле", "error_email");
+						addroom.email.focus();
+						return false;
+						}
+						else {
+							clearerror("error_email");
+						}
+						
+						if(addroom.user.value==''){
+						seterror("Моля попълнете това поле", "error_user");
+						addroom.user.focus();
+						return false;
+						}
+						else {
+							clearerror("error_user");
+						}
+						
+						if(addroom.password.value==''){
+						seterror("Моля попълнете това поле", "error_password");
+						addroom.password.focus();
+						return false;
+						}
+						else {
+							clearerror("error_password");
+						}
+											
+						if(addroom.phone.value==''){
+						seterror("Моля попълнете това поле", "error_phone");
+						addroom.phone.focus();
+						return false;
+						}
+						else {
+							clearerror("error_phone");
+						}
+						
+						
+						if(addroom.otgovor.value==''){
+						seterror("Моля попълнете това поле", "error_otgovor");
+						addroom.otgovor.focus();
+						return false;
+						}
+						else {
+							clearerror("error_otgovor");
+						}
+
+						
+				$text = $('#post_text').val();
+				j.ajax({
+					type: "POST",
+					cache: false,
+					url: "save.php",
+					data: "text="+$text,
+					success: function(data) { alert('data has been stored to database'); }
+				});
+			});
+		});
+		
+   j('.refresh').css({color:"red"});
+});
+
+
+
+</script>
+
+
+
+</head>
+<body >
+<!--------------Header--------------->
+<header> 
+<img class="header" width="100%" src="images/linux-banner.png"/>
+</header>
+
+<!--------------Navigation--------------->
+
+
+<nav>
+	<ul>
+		<li><a href="index.html">Начало</a></li>
+		<li><a href="galeriq.html">Галерия</a></li>
+		<li><a href="registraciq.html">Регистрация</a></li>
+		
+	</ul>
+</nav>
+
+			
+<!--------------Content--------------->
+<section id="content">
+
+	<div class="zerogrid">
+		<div class="row block">
+			<div class="main-content col11"><br>
+			
+				
+				<article>
+	
+
+				<br>
+					
+					<div class="content">
+
+						<form method="post" enctype="multipart/form-data" name="addroom">
+						<table border="0" width="100%">
+						<tr><td></td><td>Всички полета са задължителни</td></tr>
+						<tr><td>Име:</td><td><input name="sender" type="text" id="texta"  placeholder="Име"  value="" /><div id="error_sender"></div></td></tr>
+						<tr><td>Имейл:</td><td><input name="email" type="email" id="texta"  placeholder="Въведете вашият имейл" /><div id="error_email"></div></td></tr>
+						<tr><td>Потребителско име:</td><td><input name="user" type="text" id="texta"  placeholder="Въведете вашето потребителско име" /><div id="error_user"></div></td></tr>
+						<tr><td>Парола:</td><td><input name="password" type="password" id="texta"  placeholder="Въведете вашата парола" /><div id="error_password"></div></td></tr>
+						<tr><td>Телефон:</td><td><input name="phone" type="phone" id="texta"  placeholder="+359 xx xxxx xxx" /><div id="error_phone"></div></td></tr>
+						<tr><td>Пол:</td><td>
+						
+						<input type="radio" name="radio"  checked="checked" value="myj"/>Мъж
+						<input type="radio" name="radio"  value="jena"/>Жена
+						
+					
+						</td></tr>
+						<tr><td>Интереси:</td><td>
+						<input name="phone" type="checkbox"   value="1"/>Хакерство<br>
+						<input name="phone" type="checkbox"   value="1"/>Поддръжка на сървъри<br>
+						<input name="phone" type="checkbox"   value="1"/>Front-End<br>
+						<input name="phone" type="checkbox"   value="1"/>Други<br>
+										
+						</td></tr>
+						<tr><td>Таен Въпрос:</td><td>
+								<select  name="vyzrast" id="texta"  required="true">
+								<option value=""></option>
+								<option value="1">Коя ви е любимата храна?</option>
+								<option value="2">Каква марка е вашият бойлер?</option>
+								</select>	
+						</td></tr>
+						<tr><td>Таен отговор:</td><td><input name="otgovor" type="text" id="texta" rows='10' placeholder="Вашият отговор" /><div id="error_otgovor">  </div></td></tr>
+						
+						<tr><td></td><td><input name="submit" type="submit" value="Изпрати!" id="post_button" /></td></tr>
+						
+						</table>
+						</form>
+
+					</div>
+				
+				</article>
+			
+			</div>
+			
+	
+		</div>
+	</div>
+</section>
+<!--------------Footer--------------->
+
+
+
+<footer>
+	<div class="zerogrid">
+		<div class="row">
+			<section class="col-1-3">
+				<div class="heading">Контакт</div>
+				<div class="content">
+				GSM.:0888888888
+			<br>e-mail.: stoqn780@gmail.com
+				</div>
+			</section>
+			<section class="col-1-3">
+				<div class="heading">Категории</div>
+				<div class="content">
+					<ul>
+						<li><a href="#">Дистрибуции</a></li>
+						<li><a href="#">Сървъри</a></li>
+						<li><a href="#">Форум</a></li>
+						<li><a href="#">Уроци</a></li>
+					</ul>
+				</div>
+			</section>
+			<section class="col-1-3">
+				<div class="heading">Публикувано от</div>
+				<div class="content">
+					Стоян Щерев - Chrollo
+				</div>
+			</section>
+		</div>
+	</div>
+</footer>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+#post_button{
+	border: 1px solid #3366FF;
+	background-color:#3366FF;
+	width: 62%;
+	color:#FFFFFF;
+	font-weight: bold;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	cursor:pointer;
+	margin-left:5px;
+}
+
+#texta{
+	border: 1px solid #3366FF;
+	border-left: 4px solid #3366FF;
+	width: 60%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	margin:5px;
+}
+p{
+border-top: 1px solid #EEEEEE;
+margin-top: 0px; margin-bottom: 5px; padding-top: 5px;
+}
+span{
+	font-weight: bold;
+	color: #3B5998;
+}
+#err{
+	border: 1px solid #3366FF;
+	background-color:#FF0C0C;
+	width: ;
+	color:#FFFFFF;
+	font-weight: bold;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor:pointer;
+}
